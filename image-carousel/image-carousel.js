@@ -75,6 +75,7 @@ class ImageCarousel extends HTMLElement {
       overflow: hidden;
       position:absolute;
       width:100%;
+      height:100%;
         @starting-style{
             opacity:1;
         }
