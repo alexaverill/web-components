@@ -18,10 +18,10 @@ class ImageCarousel extends HTMLElement {
     this.children[this.currentIndex].classList.remove("hidden");
   }
   createButtons() {
-    let buttons = `<div class="button-row"><button id="previous-button">
+    let buttons = `<div class="button-row"><button id="previous-button" aria-label="Previous Image">
     <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M560.67-240 320-480.67l240.67-240.66L608-674 414.67-480.67 608-287.33 560.67-240Z"/></svg>
     </button>
-    <button id="next-button">
+    <button id="next-button" aria-label="Next Image>
     <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M521.33-480.67 328-674l47.33-47.33L616-480.67 375.33-240 328-287.33l193.33-193.34Z"/></svg>
     </button></div>`;
     this.innerHTML += buttons;
