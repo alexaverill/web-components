@@ -70,14 +70,11 @@ class ImageCarousel extends HTMLElement {
     }
     }
     figure{
-          display: grid;
-  grid-template: "container";
-  place-items: center;
-  place-content: center;
-  overflow: hidden;
-  position:absolute;
-  width:100%;
-  grid-area:1/1;
+       display: flex;
+      flex-direction:column;
+      overflow: hidden;
+      position:absolute;
+      width:100%;
         @starting-style{
             opacity:1;
         }
@@ -85,16 +82,14 @@ class ImageCarousel extends HTMLElement {
     }
         img{
         width:100%;
-        grid-area:1/1;
+        height:100%;
+        object-fit:contain;
         }
         figcaption{
             background: rgba(0, 0, 0,.7);
             color: white;
             padding: 1rem;
             width: 100%;
-            grid-area:1/1;
-            place-self:end center;
-            margin-left:2rem;
         }
 
         .hidden{
