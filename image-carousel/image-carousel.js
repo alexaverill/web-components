@@ -79,7 +79,7 @@ class ImageCarousel extends HTMLElement {
         @starting-style{
             opacity:1;
         }
-            transition:opacity 1s;
+            transition:opacity var(--image-transition-speed,500ms);
     }
         img{
         width:100%;
