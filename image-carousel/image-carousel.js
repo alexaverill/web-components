@@ -19,11 +19,9 @@ class ImageCarousel extends HTMLElement {
   }
   createButtons() {
     let buttons = `<div class="button-row"><button id="previous-button" aria-label="Previous Image">
-    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M560.67-240 320-480.67l240.67-240.66L608-674 414.67-480.67 608-287.33 560.67-240Z"/></svg>
-    </button>
+<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M518.33-480 390.67-352.33l46.66 47.66L612.67-480 437.33-655.33l-46.66 47.66L518.33-480ZM480-80q-83 0-156-31.5t-127-85.83q-54-54.34-85.5-127.34T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 155.67 31.5 72.66 31.5 127 85.5Q817-709 848.5-636T880-480q0 82.33-31.5 155.33-31.5 73-85.83 127.34-54.34 54.33-127 85.83Q563-80 480-80Zm0-66.67q138.67 0 236-97.33 97.33-97.33 97.33-236 0-139.33-97.33-236.33t-236-97q-139.33 0-236.33 97t-97 236.33q0 138.67 97 236 97 97.33 236.33 97.33ZM480-480Z"/></svg> </button>
     <button id="next-button" aria-label="Next Image">
-    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M521.33-480.67 328-674l47.33-47.33L616-480.67 375.33-240 328-287.33l193.33-193.34Z"/></svg>
-    </button></div>`;
+  <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M518.33-480 390.67-352.33l46.66 47.66L612.67-480 437.33-655.33l-46.66 47.66L518.33-480ZM480-80q-83 0-156-31.5t-127-85.83q-54-54.34-85.5-127.34T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 155.67 31.5 72.66 31.5 127 85.5Q817-709 848.5-636T880-480q0 82.33-31.5 155.33-31.5 73-85.83 127.34-54.34 54.33-127 85.83Q563-80 480-80Zm0-66.67q138.67 0 236-97.33 97.33-97.33 97.33-236 0-139.33-97.33-236.33t-236-97q-139.33 0-236.33 97t-97 236.33q0 138.67 97 236 97 97.33 236.33 97.33ZM480-480Z"/></svg> </button></div>`;
     this.innerHTML += buttons;
     document
       .querySelector("#previous-button")
@@ -43,31 +41,37 @@ class ImageCarousel extends HTMLElement {
     width:var(--image-carousel-width,500px);
     aspect-ratio: 16/9;
     }
+    #previous-button{
+      transform: rotate(180deg);
+    }
     .button-row{
-    grid-area: 1/1;
-  place-self: center;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  width: 96%;
-  button{
-    background:var(--carousel-button-background,lightgray);
-    border:var(--carousel-button-border,1px solid black);
-    border-radius:var(--carousel-button-radius,100%);
-    display:flex;
-    justify-items:center;
-    align-content:center;
-    height:3rem;
-    width:3rem;
-    box-shadow: 0px 0px 5px black;
-    svg{
-    width:100%;
-    height:100%;
-    }
-  }
-    button:active{
-        background:var(--carousel-button-active-background,grey);
-    }
+      grid-area: 1/1;
+      place-self: center;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      width: 96%;
+      button{
+        background:var(--carousel-button-background,none);
+        border:var(--carousel-button-border,1px solid none);
+        border-radius:var(--carousel-button-radius,100%);
+        display:flex;
+        justify-items:center;
+        align-content:center;
+        height:3rem;
+        width:3rem;
+            filter: drop-shadow(0px 0px 8px var(--carousel-button-shadow-color,lightgray));
+        &:hover{
+              filter: drop-shadow(0px 0px 8px var(--carousel-button-shadow-hover-color,gray));
+        }
+          &:active{
+                filter: drop-shadow(0px 0px 8px var(--carousel-button-shadow-active-color,black));
+        }
+        svg{
+        width:100%;
+        height:100%;
+        }
+      }
     }
     figure{
        display: flex;
