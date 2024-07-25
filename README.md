@@ -39,3 +39,18 @@ An image carousel component that wraps figures and adds the ability to cycle thr
 ```
 
 **Styling**
+|Variable | Default | Description|
+|-|-|-|
+|--image-carousel-width| 500px | width of image carousel|
+|--image-carousel-background-color | none | Background color for image carousel|
+| --image-carousel-border-radius | 5px | border radius |
+|--image-carousel-button-background | none | Button Background |
+|--image-carousel-button-border|none| button border |
+|--image-carousel-button-radius | 100%| button border radius |
+|--image-carousel-button-shadow-color | lightgray | button dropshadow default color |
+|--image-carousel-button-shadow-hover-color| gray | button dropshadow hover color |
+|--image-carousel-button-shadow-active-color | black | button dropshadow active color |
+|--image-carousel-transition-speed | 500ms | image opactity transition duration|
+|--image-carousel-object-fit | contain | image object fit |
+|--image-carousel-caption-background | rgba(0, 0, 0,.7) | Caption background color |
+|--image-carousel-caption-font-color | white | font color for caption |

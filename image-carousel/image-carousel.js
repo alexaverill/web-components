@@ -40,6 +40,8 @@ class ImageCarousel extends HTMLElement {
     place-items:center;
     width:var(--image-carousel-width,500px);
     aspect-ratio: 16/9;
+    background:var(--image-carousel-background-color,none);
+    border-radius:var(--image-carousel-border-radius,5px);
     }
     #previous-button{
       transform: rotate(180deg);
@@ -52,20 +54,20 @@ class ImageCarousel extends HTMLElement {
       justify-content: space-between;
       width: 96%;
       button{
-        background:var(--carousel-button-background,none);
-        border:var(--carousel-button-border,1px solid none);
-        border-radius:var(--carousel-button-radius,100%);
+        background:var(--image-carousel-button-background,none);
+        border:var(--image-carousel-button-border,none);
+        border-radius:var(--image-carousel-button-radius,100%);
         display:flex;
         justify-items:center;
         align-content:center;
         height:3rem;
         width:3rem;
-            filter: drop-shadow(0px 0px 8px var(--carousel-button-shadow-color,lightgray));
+            filter: drop-shadow(0px 0px 8px var(--image-carousel-button-shadow-color,lightgray));
         &:hover{
-              filter: drop-shadow(0px 0px 8px var(--carousel-button-shadow-hover-color,gray));
+              filter: drop-shadow(0px 0px 8px var(--image-carousel-button-shadow-hover-color,gray));
         }
           &:active{
-                filter: drop-shadow(0px 0px 8px var(--carousel-button-shadow-active-color,black));
+                filter: drop-shadow(0px 0px 8px var(--image-carousel-button-shadow-active-color,black));
         }
         svg{
         width:100%;
@@ -83,16 +85,16 @@ class ImageCarousel extends HTMLElement {
         @starting-style{
             opacity:1;
         }
-            transition:opacity var(--image-transition-speed,500ms);
+            transition:opacity var(--image-carousel-transition-speed,500ms);
     }
         img{
         width:100%;
         height:100%;
-        object-fit:contain;
+        object-fit:var(--image-carousel-object-fit,contain);
         }
         figcaption{
-            background: rgba(0, 0, 0,.7);
-            color: white;
+            background: var(--image-carousel-caption-background,rgba(0, 0, 0,.7));
+            color: var(--image-carousel-caption-font-color,white);
             padding: 1rem;
             width: 100%;
         }
@@ -108,6 +110,7 @@ class ImageCarousel extends HTMLElement {
       entry.classList.add("hidden");
     }
     this.children[0].classList.remove("hidden");
+
     this.createButtons();
   }
 }
