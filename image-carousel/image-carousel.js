@@ -103,8 +103,6 @@ class ImageCarousel extends HTMLElement {
         opacity:0;
         }
       </style>`;
-    console.log("Loaded");
-
     for (let entry of this.children) {
       entry.classList.add("carousel");
       entry.classList.add("hidden");
