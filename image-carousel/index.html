@@ -1,5 +1,11 @@
 <html>
 
+<head>
+    <style>
+
+    </style>
+</head>
+
 <body>
     <image-carousel>
         <figure>
@@ -18,7 +24,14 @@
             <figcaption>An Image</figcaption>
         </figure>
     </image-carousel>
+    <button onclick="addImages()">Add Images</button>
 </body>
 <script type="text/javascript" src="./image-carousel.js"></script>
+<script>
+    const addImages = () => {
+        let carousel = document.querySelector('image-carousel');
+        carousel.setImages(["https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Splendid_Fairywren_8352.jpg/2880px-Splendid_Fairywren_8352.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Tunisian_tortoise_%28Testudo_graeca_nabeulensis%29_male_Cap_Bon_2.jpg/2880px-Tunisian_tortoise_%28Testudo_graeca_nabeulensis%29_male_Cap_Bon_2.jpg"])
+    }
+</script>
 
 </html>

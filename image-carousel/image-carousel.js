@@ -32,6 +32,19 @@ class ImageCarousel extends HTMLElement {
   }
   connectedCallback() {
     this.figureNumber = this.children.length;
+    this.addCSS();
+    this.initialize();
+  }
+  initialize() {
+    for (let entry of this.children) {
+      entry.classList.add("carousel");
+      entry.classList.add("hidden");
+    }
+    this.children[0].classList.remove("hidden");
+
+    this.createButtons();
+  }
+  addCSS() {
     this.innerHTML += `<style>
     image-carousel{
     position:relative;
@@ -95,7 +108,7 @@ class ImageCarousel extends HTMLElement {
         figcaption{
             background: var(--image-carousel-caption-background,rgba(0, 0, 0,.7));
             color: var(--image-carousel-caption-font-color,white);
-            padding: 1rem;
+            padding: var(--image-carousel-caption-padding,0);
             width: 100%;
         }
 
@@ -103,13 +116,26 @@ class ImageCarousel extends HTMLElement {
         opacity:0;
         }
       </style>`;
+  }
+  setImages(imageArray) {
+    console.log(imageArray);
+    this.innerHTML = "";
+    this.figureNumber = imageArray.length;
+    for (let entry of imageArray) {
+      let figure = document.createElement("figure");
+      let image = document.createElement("img");
+      image.src = entry;
+      figure.appendChild(image);
+      this.appendChild(figure);
+    }
+
     for (let entry of this.children) {
       entry.classList.add("carousel");
       entry.classList.add("hidden");
     }
-    this.children[0].classList.remove("hidden");
-
+    this.addCSS();
     this.createButtons();
+    this.children[0].classList.remove("hidden");
   }
 }
 customElements.define("image-carousel", ImageCarousel);
